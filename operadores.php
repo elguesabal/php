@@ -33,7 +33,31 @@
     <?php
         $n1 = $_GET["a"];
         $n2 = $_GET["b"];
-        echo "ue: ", (4 ^ 2);
+        echo pow($n1, $n2);
+    ?>
+    <br/><br/>
+    <?php
+        $n1 = $_GET["a"];
+        $n2 = $_GET["b"];
+        echo sqrt($n1);
+    ?>
+    <br/><br/>
+    <?php
+        $n1 = $_GET["a"];
+        $n2 = $_GET["b"];
+        echo round($n1);
+    ?>
+    <br/><br/>
+    <?php
+        $n1 = $_GET["a"];
+        $n2 = $_GET["b"];
+        echo intval($n1);
+    ?>
+    <br/><br/>
+    <?php
+        $n1 = $_GET["a"];
+        $n2 = $_GET["b"];
+        echo number_format($n1, 2, ",", ".");
     ?>
 </body>
 </html>
