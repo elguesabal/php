@@ -11,7 +11,7 @@
         $str = "vampeta";
         $n = 10;
         $array = array(1, 2, 3);
-        $txt = "vampeta 42 abc";
+        $txt = "VAMPETA 42 abc";
         $vetor = ["vampeta", "42", "abc"];
     ?>
 
@@ -89,6 +89,69 @@
         echo "chr(97): ", chr(97);
         echo $br;
         echo 'ord("a")', ord("a");
+        echo $br;
+    ?>
+
+    <?php
+        echo "strtolower: ", strtolower($txt);
+        echo $br;
+        echo "stroupper: ", strtoupper($txt);
+        echo $br;
+    ?>
+
+    <?php
+        echo "ucfirst: ", ucfirst($str);
+        echo $br;
+        echo "ucwords: ", ucwords($txt);
+        echo $br;
+    ?>
+
+    <?php
+        echo "strrev: ", strrev($txt);
+        echo $br;
+    ?>
+
+    <?php
+        echo "strpos: ", strpos($txt, "42");
+        echo $br;
+        echo "stripos: ", stripos($txt, "ABC");
+        echo $br;
+    ?>
+
+    <?php
+        echo "substr_count: ", substr_count($txt, "a");
+        echo $br;
+    ?>
+
+    <?php
+        echo "substr: ", substr($txt, 0, 5);
+        echo $br;
+        echo "substr: ", substr($txt, 5);
+        echo $br;
+        echo "substr: ", substr($txt, -5);
+        echo $br;
+        echo "substr: ", substr($txt, -5, 4);
+        echo $br;
+    ?>
+
+    <?php
+        echo "str_pad: ", str_pad($txt, 30, "#", STR_PAD_RIGHT);
+        echo $br;
+        echo "str_pad: ", str_pad($txt, 30, "#", STR_PAD_BOTH);
+        echo $br;
+        echo "str_pad: ", str_pad($txt, 30, "#", STR_PAD_LEFT);
+        echo $br;
+    ?>
+
+    <?php
+        echo "str_repeat: ", str_repeat($str, 5);
+        echo $br;
+    ?>
+
+    <?php
+        echo "str_replace: ", str_replace("abc", "vampeta", $txt);
+        echo $br;
+        echo "str_ireplace: ", str_ireplace("ABC", "vampeta", $txt);
         echo $br;
     ?>
 </body>
