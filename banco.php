@@ -9,7 +9,7 @@
     <?php
         class Conta {
             public $numConta;
-            protected $tipo; // cc -> corrente   cp -> poupanca
+            protected $tipo;
             private $dono;
             private $saldo;
             private $status;
@@ -17,7 +17,18 @@
             public function __construct() {
                 $this->status = false;
                 $this->saldo = 0;
+                echo "Crie uma conta...<br/>";
             }
+            public function getNumConta() { return ($this->numConta); }
+            public function setNumConta($n) { $this->numConta = $n; }
+            public function geTipo() { return ($this->tipo); }
+            public function setTipo($t) { $this->tipo = $t; }
+            public function getDono() { return ($this->dono); }
+            public function setDono($d) { $this->dono = $d; }
+            public function getSaldo() { return ($this->saldo); }
+            public function setSaldo($s) { $this->saldo = $s; }
+            public function getStatus() { return ($this->status); }
+            public function setStatus($s) { $this->status = $s; }
             public function abrirConta($t) {
                 if ($t == "CC") {
                     $this->saldo += 50;
@@ -31,7 +42,7 @@
                 $this->status = true;
             }
             public function fecharConta() {
-                if ($this->status == false || $this->saldo == 0) {
+                if ($this->status == false || $this->saldo != 0) {
                     echo "Error";
                     return ;
                 }
@@ -65,20 +76,16 @@
                     return ;
                 }
             }
-
-
-            public function getNum() {}
-            public function setNum() {}
-            public function geTipo() {}
-            public function setTipo() {}
-            public function getDono() {}
-            public function setDono() {}
-            public function getSaldo() {}
-            public function setSaldo() {}
-            public function getStatus() {}
-            public function setStatus() {}
         };
+    ?>
 
+    <?php
+        $c = new Conta;
+
+        $c->setDono("jose");
+        $c->abrirConta("CP");
+        $c->depositar(100);
+        echo "Dono: ", $c->getDono(), "<br/>", "Saldo: ", $c->getSaldo(), "<br/>";
     ?>
 </body>
 </html>
