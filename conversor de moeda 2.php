@@ -14,18 +14,12 @@
             return ;
         }
 
-        $data = '2025-05-14';
-        $url = "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarDia(dataCotacao=@dataCotacao)?@dataCotacao='2025-05-14'&top=1&format=json";
+        $inicio = date("m-d-Y", strtotime("-7 days"));
+        $fim = date("m-d-Y");
+        $url = 'https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?@dataInicial=\'' . $inicio . '\'&@dataFinalCotacao=\'' . $fim . '\'&$top=1&$orderby=dataHoraCotacao%20desc&$format=json&$select=cotacaoCompra,dataHoraCotacao';
+        $response = json_decode(file_get_contents($url), true);
 
-        $response = file_get_contents($url);
-        $data = json_decode($response, true);
-
-        if (isset($data['value'][0])) {
-            $cotacao = $data['value'][0];
-            echo "Data: " . $cotacao['dataHoraCotacao'] . "\n";
-            echo "Compra: " . $cotacao['cotacaoCompra'] . "\n";
-            echo "Venda: " . $cotacao['cotacaoVenda'] . "\n";
-        }
+        echo "R\$$valor = U\$", number_format(((float)$valor / (float)$response["value"][0]["cotacaoCompra"]), 2, ",", ".");
     ?>
 </body>
 </html>
